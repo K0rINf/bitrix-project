@@ -1,6 +1,12 @@
 # Bitrix Project
 
 Заготовка для 1C Bitrix проектов.
+todo:
+- подумать выпилить Vue
+- подумать выпилить webpack/encore
+- Добавить свою страницу с версионированием и деплоем
+- Добавить в гайдлайн правила именований модулей и компонентов
+- подумать насчет https://github.com/Mediahero/bitrix-clear-upload
 
 ## Создание нового проекта
 
@@ -8,7 +14,7 @@
 
 Клонировать репозиторий (за пределами публичной директории веб-сервера).
 
-Переинициализировать репозиторий: удалить директорию `.git` и выполнить `git init`. 
+Переинициализировать репозиторий: удалить директорию `.git` и выполнить `git init`.
 
 Установить зависимости и "собрать" фронтенд:
 ```sh
@@ -17,6 +23,17 @@ composer install && npm install && npm run encore -- dev
 
 Перенести в корень клонированного проекта содержимое директорий `bitrix`, `upload` и `local` 
 (не затирая файл `local/php_interface/init.php`).
+```
+windows:
+mklink /j sites\s1\bitrix __project_dir__\bitrix
+mklink /j sites\s1\upload __project_dir__\upload
+mklink /j sites\s1\local __project_dir__\local
+
+unix:
+ln -s sites\s1\bitrix __project_dir__\bitrix
+ln -s sites\s1\upload __project_dir__\upload
+ln -s sites\s1\local __project_dir__\local
+```
 
 В директорию `sites/s1` перенести публичные файлы сайта.
 
@@ -25,7 +42,6 @@ composer install && npm install && npm run encore -- dev
 ```sh
 /home/bitrix/www -> /home/bitrix/projectname/sites/s1
 ```
-
 
 Создать файл `.env` 
 
@@ -53,9 +69,19 @@ touch .env
 php migrator install
 ```
 
+Добавляем автоматическую генерацию миграций
+```
+Arrilot\BitrixMigrations\Autocreate\Manager::init($_SERVER["DOCUMENT_ROOT"].'/../../migrations');
+```
+
 Доустановить модуль [Базовых Битрикс компонентов](https://github.com/bitrix-expert/bbc). в административном интефейсе: 
 
 `Marketplace > Установленные решения > ББК (bex.bbc)`
+
+Удалить файл README.md
+Переименовать файл README.md.example в README.md и заполнить его актуальными данными 
+
+Заполнить файл package.json
 
 
 ## Бэкенд
@@ -101,9 +127,6 @@ composer run lint:php
 composer run fix:php
 ```
 
-
-
-
 ## Фронтенд
 
 В качестве "сборщика" изпользуется [symfony/webpack-encore](https://github.com/symfony/webpack-encore). 
@@ -119,8 +142,6 @@ npm run encore -- dev          # запустить сборку один раз
 npm run encore -- dev --watch  # запустить сборку в режиме слежения за файлами
 npm run encore -- production   # запустить сборку для продакшена
 ```
-
-
 
 ### Технологии
 
@@ -211,7 +232,7 @@ npm run fix:styles   # исправить ошибки
 соответствовать коду нового сайта). И добавить в нее ссылки на необходимые файлы и директории:
 
 ```
-mkdir sites/s2             # создать директорию для дополнительного сайта
+mkdir sites/s2             # создать директорию для дополнительного сайта	
 cd sites/s2                # перейти в нее
 ln -s ../../bitrix bitrix  # и
 ln -s ../../local local    # добавить 
@@ -219,6 +240,8 @@ ln -s ../../upload upload  # ссылки
 ``` 
 
 Далее необходимо настроить веб-сервер для работы с новым сайтом.
+
+Настроить Путь к корневой папке веб-сервера для каждого сайта и доменное имя
 
 ## Разное
 

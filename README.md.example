@@ -1,0 +1,95 @@
+# Название проекта
+
+Краткое описание проекта, цели, для чего, кто использует, кому нужен, роли пользователей
+
+## Описание структуры проекта
+    .
+    ├── bitrix                          # общее ядро
+    ├── environments                    # папка с настройками окружения для jedi консоли
+    ├── local                           # код проекта
+    ├── logs                            # логи проекта
+    ├── sites                           # публичная часть сайтов
+
+### Фронтенд
+
+Файлы фронтенда должны располагаться в директории `local/assets`.
+
+Основные команды:
+```sh
+npm run encore -- dev          # запустить сборку один раз
+npm run encore -- dev --watch  # запустить сборку в режиме слежения за файлами
+npm run encore -- production   # запустить сборку для продакшена
+```
+
+### Deploy
+Настроить веб сервер на /sites/s1
+```bash
+git clone
+composer install && npm install && npm run encore 
+touch .env
+## Заполнить .env данными в соответствии с файлом-образцом .env.example
+./vendor/bin/jedi env:init default
+php migrator migrate
+```
+
+## Используемые пакеты:
+- [arrilot/bitrix-migrations](https://github.com/arrilot/bitrix-migrations)
+- [arrilot/bitrix-models](https://github.com/arrilot/bitrix-models)
+    - [illuminate/database](https://github.com/illuminate/database)
+    - [illuminate/events](https://github.com/illuminate/events)
+- [bitrix-expert/bbc](https://github.com/bitrix-expert/bbc)
+- [bitrix-expert/monolog-adapter](https://github.com/bitrix-expert/monolog-adapter)
+- [bitrix-expert/tools](https://github.com/bitrix-expert/tools)
+- [maximaster/tools.twig](https://github.com/maximaster/tools.twig)
+- [notamedia/console-jedi](https://github.com/notamedia/console-jedi)
+- [kint-php/kint](https://github.com/kint-php/kint) и [kint-php/kint-twig](https://github.com/kint-php/kint-twig)  
+- [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)
+
+## Подход к работе
+
+За основной подход используется [гайд по работе с битриксом](https://github.com/regiomedia/bitrix-project/wiki/Гайдлайн)
+а также требование к [версионированию и деплою](https://github.com/regiomedia/bitrix-project/wiki/Версионирование-и-деплой)
+
+### Контроль качества PHP
+Для проверки пхп-кода используется [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+
+Код проверятся в соответствии с набором правил, описанных в файле [ruleset.xml](ruleset.xml).
+
+На это стандарт PSR-2 
+([рус.](https://svyatoslav.biz/misc/psr_translation/#_PSR-2)/[англ.](http://www.php-fig.org/psr/psr-2/)),
+а также наличие PHPDoc-комментариев.
+
+Проверяются файлы из директорий [local/classes](local/classes) и [local/components](local/components) 
+(за исключением файлов `template.php`)
+
+Проверка осуществляется командой (это запуск утилиты `phpcs` с предустановленными параметрами) 
+
+```sh
+composer run lint:php
+```
+
+Также есть возможность исправить часть обнаруженных ошибок утилитой `phpcbf`
+
+```sh
+composer run fix:php
+```
+### Контроль качества JS
+JS-файлы проверяются на соответствие стандарту [airbnb](https://github.com/airbnb/javascript) 
+утилитой [ESLint](https://eslint.org). Конфигурация линтера - файл [.eslintrc](.eslintrc)
+
+```sh
+npm run lint:scripts  # показать ошибки
+npm run fix:scripts   # исправить ошибки
+```
+
+### Контроль качества SCSS
+SCSS-файлы проверяются утилитой [stylelint](https://stylelint.io/). 
+Основа - набор правил [sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines). 
+Конфигурация - файл [.stylelintrc](.stylelintrc)
+
+```sh
+npm run lint:styles  # показать ошибки
+npm run fix:styles   # исправить ошибки
+```
+
+За исправление стилевых файлов отвечает пакет [stylefmt](https://github.com/morishitter/stylefmt)
