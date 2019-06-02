@@ -4,8 +4,8 @@
 todo:
 - подумать выпилить Vue
 - подумать выпилить webpack/encore
-- Добавить свою страницу с версионированием и деплоем
 - Добавить в гайдлайн правила именований модулей и компонентов
+- Выпилить twig из зависимостей и гайдлайна
 - подумать насчет https://github.com/Mediahero/bitrix-clear-upload
 
 ## Создание нового проекта
@@ -245,9 +245,9 @@ ln -s ../../upload upload  # ссылки
 
 ## Разное
 
-[Версионирование и деплой](https://github.com/regiomedia/bitrix-project/wiki/%D0%92%D0%B5%D1%80%D1%81%D0%B8%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%B4%D0%B5%D0%BF%D0%BB%D0%BE%D0%B9)
+[Версионирование и деплой](https://github.com/K0rINf/bitrix-project/wiki/Версионирование-и-деплой)
  
-[Гайдлайн разработки Битрикс-проекта](https://github.com/regiomedia/bitrix-project/wiki/%D0%93%D0%B0%D0%B9%D0%B4%D0%BB%D0%B0%D0%B9%D0%BD)
+[Гайдлайн разработки](https://github.com/K0rINf/bitrix-project/wiki/Гайдлайн)
 
 ### Для пользователей [Phabricator](https://www.phacility.com/phabricator/)
 
