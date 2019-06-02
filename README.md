@@ -2,7 +2,7 @@
 
 Заготовка для 1C Bitrix проектов.
 todo:
-- подумать выпилить Vue
+- подумать выпилить Vue 
 - подумать выпилить webpack/encore
 - Добавить в гайдлайн правила именований модулей и компонентов
 - Выпилить twig из зависимостей и гайдлайна
@@ -81,7 +81,7 @@ Arrilot\BitrixMigrations\Autocreate\Manager::init($_SERVER["DOCUMENT_ROOT"].'/..
 Удалить файл README.md
 Переименовать файл README.md.example в README.md и заполнить его актуальными данными 
 
-Заполнить файл package.json
+Заполнить файл package.json актуальными данными 
 
 
 ## Бэкенд
