@@ -13,4 +13,5 @@
 hosts.yml
 
 .env
+.idea/
 
