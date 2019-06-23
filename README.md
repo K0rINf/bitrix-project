@@ -78,6 +78,8 @@ Arrilot\BitrixMigrations\Autocreate\Manager::init($_SERVER["DOCUMENT_ROOT"].'/..
 
 `Marketplace > Установленные решения > ББК (bex.bbc)`
 
+В настройках сайта необходимо указать "Путь к корневой папке веб-сервера для этого сайта"
+
 Удалить файл README.md
 Переименовать файл README.md.example в README.md и заполнить его актуальными данными 
 
