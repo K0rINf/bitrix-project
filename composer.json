@@ -1,5 +1,6 @@
 {
     "require": {
+        "php": ">=7.2",
         "arrilot/bitrix-migrations": "^2.2",
         "arrilot/bitrix-models": "^0.7.13",
         "maximaster/tools.twig": "^1.1",
@@ -15,7 +16,8 @@
     },
 
     "require-dev": {
-        "squizlabs/php_codesniffer": "2.*"
+        "squizlabs/php_codesniffer": "2.*",
+        "phpunit/phpunit": "^8.2"
     },
     "scripts": {
         "lint:php": "php ./vendor/bin/phpcs  --encoding=utf-8 --ignore=./local/components/*/templates/*  --standard=ruleset.xml --extensions=php  ./local/classes ./local/components",

@@ -69,7 +69,7 @@ touch .env
 php migrator install
 ```
 
-Добавляем автоматическую генерацию миграций
+Добавляем автоматическую генерацию миграций в init.php
 ```
 Arrilot\BitrixMigrations\Autocreate\Manager::init($_SERVER["DOCUMENT_ROOT"].'/../../migrations');
 ```
@@ -250,8 +250,3 @@ ln -s ../../upload upload  # ссылки
 [Версионирование и деплой](https://github.com/K0rINf/bitrix-project/wiki/Версионирование-и-деплой)
  
 [Гайдлайн разработки](https://github.com/K0rINf/bitrix-project/wiki/Гайдлайн)
-
-### Для пользователей [Phabricator](https://www.phacility.com/phabricator/)
-
-В файле [.arclint](.arclint) настроены основные проверки кода, в том числе описанные выше.
-
