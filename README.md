@@ -54,7 +54,7 @@ touch .env
 Выполнить команду
 
 ```sh
-./vendor/bin/jedi env:init default
+./vendor/bin/jedi env:init dev
 ```
 
 Эта команда скопирует в директорию `bitrix` системные файлы настроек сконфигурированные для работы с 
