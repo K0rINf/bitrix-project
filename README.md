@@ -30,9 +30,9 @@ mklink /j sites\s1\upload __project_dir__\upload
 mklink /j sites\s1\local __project_dir__\local
 
 unix:
-ln -s sites\s1\bitrix __project_dir__\bitrix
-ln -s sites\s1\upload __project_dir__\upload
-ln -s sites\s1\local __project_dir__\local
+ln -s __project_dir__\bitrix sites\s1\bitrix
+ln -s __project_dir__\upload sites\s1\upload
+ln -s __project_dir__\local sites\s1\local
 ```
 
 В директорию `sites/s1` перенести публичные файлы сайта.
