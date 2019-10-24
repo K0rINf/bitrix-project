@@ -1,3 +1,32 @@
+.htaccess
+*.htaccess
+.htaccess*
+*web.config
+*.log
+*.sql
+*.txt
+*.dt
+*.xml
+*.tar.gz*
+*.zip
+*.rar
+*.gz
+*.tar
+*.bak
+*.old
+*.env
+*~
+*/_*
+_*
+*.bak
+
+cache/*
+
+# файлы среды разработки Netbeans
+nbproject/
+
+# файлы среды разработки от JetBrains (PHPStorm, WebStorm, etc)
+.idea/
 
 /node_modules/
 /bower_components/
@@ -5,13 +34,8 @@
 
 /bitrix
 /upload
+/video
 
 /local/build
 
-*.log
-
 hosts.yml
-
-.env
-.idea/
-
