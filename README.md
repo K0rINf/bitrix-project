@@ -52,8 +52,15 @@ touch .env
 Заполнить его данными в соответствии с файлом-образцом `.env.example`
 
 Выполнить команду
-
+windows
 ```sh
+vendor/bin/jedi.bat init
+vendor/bin/jedi.bat env:init dev
+```
+
+linux
+```sh
+./vendor/bin/jedi init
 ./vendor/bin/jedi env:init dev
 ```
 
@@ -84,7 +91,6 @@ Arrilot\BitrixMigrations\Autocreate\Manager::init($_SERVER["DOCUMENT_ROOT"].'/..
 Переименовать файл README.md.example в README.md и заполнить его актуальными данными 
 
 Заполнить файл package.json актуальными данными 
-
 
 ## Бэкенд
 
